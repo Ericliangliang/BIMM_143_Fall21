@@ -40,7 +40,7 @@ This is a showcase of my work for BIMM143 in Fall 2021!!!
 
 ### Find A Novel Protein via Bioinformatics
 
-- Find A Gene Project [Diploscapter translation initiation factor](https://github.com/Ericliangliang/bimm143/tree/main/class%2020%20BIMM143_Project)
+- Find A Gene Project - [Diploscapter translation initiation factor](https://github.com/Ericliangliang/bimm143/tree/main/class%2020%20BIMM143_Project)
 
 
 
