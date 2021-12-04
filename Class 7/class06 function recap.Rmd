@@ -1,0 +1,29 @@
+---
+title: "Class06 recap"
+author: 'Bangyan Hu (PID: A15540189)'
+date: "10/19/2021"
+output: html_document
+---
+
+```{r}
+grade <- function(x, drop.lowest=TRUE) {
+  #make sure our scores are all numbers
+  x <- as.numeric(x)
+  
+  #map NA values to zero
+  x[ which(is.na(x)) ] = 0
+  
+  if(drop.lowest) {
+    #find the mean without the lowest value
+    mean(x[ -which.min(x)] )
+  } else {
+    mean(x)
+  }
+  
+}
+```
+
+```{r}
+
+```
+
