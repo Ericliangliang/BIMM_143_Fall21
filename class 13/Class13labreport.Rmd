@@ -1,0 +1,47 @@
+---
+title: "Class 13 lab report"
+author: 'Bangyan Hu (PID: A15540189)'
+date: "11/9/2021"
+output: pdf_document
+---
+
+Read my mm-second.x.zebrafish.tsv.
+
+```{r}
+zeb <- read.delim(file="mm-second.x.zebrafish.tsv")
+colnames(zeb) = c("qseqid", "sseqid", "pident", "length",
+                  "mismatch", "gapopen", "qstart", "qend", 
+                  "sstart", "send", "evalue", "bitscore")
+head(zeb)
+```
+
+Make a histogram of the \$bitscore values.
+
+```{r}
+hist(zeb$bitscore, breaks=30)
+```
+
+Bitscores are only somewhat related to pident; they take into account not only the percent identity but the length of the alignment.
+
+```{r}
+## Asuming your blast results are stored in an object called 'b'
+plot(zeb$pident  * (zeb$qend - zeb$qstart), zeb$bitscore)
+```
+
+Or using ggplot
+
+```{r}
+library(ggplot2)
+ggplot(zeb, aes(pident, bitscore)) + geom_point(alpha=0.1) 
+```
+
+From this graph, we can see that bitscores are only somewhat related to pident.
+
+Take into account not only the percent identity but the length of the alignment.
+
+```{r}
+ggplot(zeb, aes((pident * (qend - qstart)), bitscore)) + 
+  geom_point(alpha=0.1) + geom_smooth()
+```
+
+There is about a straightforward relationship between bitscore and (percent identity x length).
