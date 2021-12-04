@@ -1,0 +1,61 @@
+---
+title: "BIMM143 Project"
+author: 'Bangyan Hu (PID: A15540189)'
+date: "12/1/2021"
+output: pdf_document
+---
+
+```{r}
+library(bio3d)
+projectdata <- read.fasta("heatmap.fst")
+head(projectdata)
+```
+
+```{r}
+seqidentity(projectdata, ncore=1)
+```
+
+```{r}
+idents <- seqidentity(projectdata, ncore=1)
+idents
+```
+
+```{r}
+heatmap(idents, margins = c(12,12))
+```
+
+```{r}
+sum(idents[1,])
+sum(idents[2,])
+sum(idents[3,])
+sum(idents[4,])
+sum(idents[5,])
+sum(idents[6,])
+sum(idents[7,])
+sum(idents[8,])
+sum(idents[9,])
+sum(idents[10,])
+```
+
+```{r}
+library(bio3d)
+q8 <- read.fasta("sequence.fasta")
+```
+
+```{r}
+h <- blast.pdb(q8, time.out = NULL)
+hits <- plot(h)
+head(hits$pdb.id)
+```
+
+```{r}
+h
+```
+
+```{r}
+pdb.annotate("6YBS_o", unique = TRUE)
+pdb.annotate("6FYX_r", unique = TRUE)
+pdb.annotate("6GD1_A", unique = TRUE)
+```
+
+![](vmdscene3.pov)
